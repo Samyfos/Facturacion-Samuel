@@ -66,7 +66,7 @@ moduloProducto.controller('ProductoEditController', ['$scope', '$routeParams', '
                 $scope.bean.obj_proveedor.id = null;
             }
             if (!$scope.bean.obj_categoria.id > 0) {
-                $scope.bean.obj_proveedor.id = null;
+                $scope.bean.obj_categoria.id = null;
             }
 
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
