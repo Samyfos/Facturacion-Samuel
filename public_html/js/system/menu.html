@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2015 by Rafael Angel Aznar Aparici (rafaaznar at gmail dot com)
+
+sisane: The stunning micro-library that helps you to develop easily
+            AJAX web applications by using Angular.js 1.x & sisane-server
+sisane is distributed under the MIT License (MIT)
+Sources at https://github.com/rafaelaznar/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+<div class="navbar-header" >
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class='navbar-brand'  href='home'>
+        <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i> Facturacion <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i>
+    </a>
+</div>
+<div id="navbar" class="navbar-collapse collapse" >
+    <ul class="nav navbar-nav" id="appMenu">
+        <li ng-class="{ active: isActive('/home')}"><a href="home">Home</a></li>
+        <!-- Empleado ------------------------------------------- -->                
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-icon-list-alt"></i>Facturación<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">                
+                <li class="dropdown-header">Facturación</li>
+                <li ng-class="{ active: isActive('/{{meta.empleado.name}}/plist')}"><a href="{{meta.empleado.name}}/plist"><i class="fa fa-fw {{meta.empleado.icon}}"></i>{{meta.empleado.title}}</a></li>
+                <li ng-class="{ active: isActive('/{{meta.tipoempleado.name}}/plist')}"><a href="{{meta.tipoempleado.name}}/plist"><i class="fa fa-fw {{meta.tipoempleado.icon}}"></i>{{meta.tipoempleado.title}}</a></li>           
+                <li ng-class="{ active: isActive('/{{meta.cliente.name}}/plist')}"><a href="{{meta.cliente.name}}/plist"><i class="fa fa-fw {{meta.cliente.icon}}"></i>{{meta.cliente.title}}</a></li>                
+                <li ng-class="{ active: isActive('/{{meta.factura.name}}/plist')}"><a href="{{meta.factura.name}}/plist"><i class="fa fa-fw {{meta.factura.icon}}"></i>{{meta.factura.title}}</a></li>                
+                <li ng-class="{ active: isActive('/{{meta.lineapedido.name}}/plist')}"><a href="{{meta.lineapedido.name}}/plist"><i class="fa fa-fw {{meta.lineapedido.icon}}"></i>{{meta.lineapedido.title}}</a></li>                
+                <li ng-class="{ active: isActive('/{{meta.categoria.name}}/plist')}"><a href="{{meta.categoria.name}}/plist"><i class="fa fa-fw {{meta.categoria.icon}}"></i>{{meta.categoria.title}}</a></li>                
+                <li ng-class="{ active: isActive('/{{meta.producto.name}}/plist')}"><a href="{{meta.producto.name}}/plist"><i class="fa fa-fw {{meta.producto.icon}}"></i>{{meta.producto.title}}</a></li>                
+                <li ng-class="{ active: isActive('/{{meta.proveedor.name}}/plist')}"><a href="{{meta.proveedor.name}}/plist"><i class="fa fa-fw {{meta.proveedor.icon}}"></i>{{meta.proveedor.title}}</a></li>                
+
+
+
+                <li class="divider"></li>                
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-user"></i>
+                <span id="broth_username_id" ng-if="isSessionActive()">{{username}}</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown">
+                <li ng-if="!isSessionActive()"><a href="login"><i class="fa fa-fw fa-user"></i> Login</a></li>
+                <!--
+                <li ng-if="isSessionActive()"><a href="#"><i class="fa fa-fw fa-user"></i> Perfil de usuario</a></li>
+                <li ng-if="isSessionActive()"><a href="#"><i class="fa fa-fw fa-gear"></i> Configuración</a></li>
+                -->
+                <li ng-if="isSessionActive()"><a href="passchange"><i class="fa fa-fw fa-key"></i> Cambio de contraseña</a></li>
+                <li ng-if="isSessionActive()" class="divider"></li>
+                <li ng-if="isSessionActive()" id="broth_logout"><a href="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+</div>
