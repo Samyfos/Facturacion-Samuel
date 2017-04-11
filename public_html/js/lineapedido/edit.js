@@ -40,8 +40,8 @@ moduloLineapedido.controller('LineapedidoEditController', ['$scope', '$routePara
         $scope.debugging = serverService.debugging();
         $scope.bean = {};
         //---
-        $scope.bean.obj_factura = {"id": 0};
-        $scope.show_obj_factura = true;
+        $scope.bean.obj_lineapedido = {"id": 0};
+        $scope.show_obj_lineapedido = true;
         //---
         $scope.id = $routeParams.id;
         serverService.promise_getOne($scope.ob, $scope.id).then(function (response) {
@@ -59,10 +59,10 @@ moduloLineapedido.controller('LineapedidoEditController', ['$scope', '$routePara
             $scope.status = "Error en la recepción de datos del servidor";
         });
         $scope.save = function () {
-            var arrinputdate = $scope.bean.fecha.split(" ");
-            var partes = arrinputdate[0].split("/");
-            var newDate = new Date(partes[2], partes[1] - 1, partes[0]);
-            $scope.bean.fecha = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
+//            var arrinputdate = $scope.bean.fecha.split(" ");
+//            var partes = arrinputdate[0].split("/");
+//            var newDate = new Date(partes[2], partes[1] - 1, partes[0]);
+//            $scope.bean.fecha = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
 
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
@@ -100,21 +100,5 @@ moduloLineapedido.controller('LineapedidoEditController', ['$scope', '$routePara
                 $scope.bean[nameForeign].id = modalResult;
             });
         };
-        $scope.$watch('bean.obj_tipolineapedido.id', function () {
-            if ($scope.bean) {
-                if ($scope.bean.obj_tipolineapedido.id) {
-                    serverService.promise_getOne('tipolineapedido', $scope.bean.obj_tipolineapedido.id).then(function (response) {
-                        var old_id = $scope.bean.obj_tipolineapedido.id;
-                        if (response.data.message.id != 0) {
-                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', true);
-                            $scope.bean.obj_tipolineapedido = response.data.message;
-                        } else {
-                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', false);
-                            $scope.bean.obj_tipolineapedido.id = old_id;
-                            $scope.bean.obj_tipolineapedido.descripcion = "";
-                        }
-                    });
-                }
-            }
-        });
+        
     }]);

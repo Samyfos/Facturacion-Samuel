@@ -105,10 +105,9 @@ THE SOFTWARE.
                                             <td ng-repeat="f in fields" ng-if="f.visible" class="text-right">
 
                                                 <div ng-if="f.visible && f.type == 'id'"><b>{{obj[f.name]}}</b></div>
-                                                <div ng-if="f.visible && f.type == 'date'" class="text-center">{{obj[f.name]}}</div>
+                                                <div ng-if="f.visible && f.type == 'integer'" class="text-center">{{obj[f.name]}}</div>
                                                 <div ng-if="f.visible && f.type == 'text'" class="text-left">{{obj[f.name]|clipString}}</div>
                                                 <!------------------------------------------------>
-                                                <div ng-if="f.visible && f.name == 'obj_tipodocumento'" class="text-center">{{obj.obj_tipodocumento.descripcion}}</div>
                                             </td>
                                             <td plistoperationbarspa></tdspa>
                                                 <button ng-click="count = count + 1;alert(count)" ng-init="count = 0">

@@ -57,7 +57,7 @@ THE SOFTWARE.
                                         <tr ng-repeat="f in fields" class="text-left">
                                             <td>{{f.longname}}</td>
                                             <td ng-if="f.type == 'id'"><b>{{bean[f.name]}}</b></td>
-                                            <td ng-if="f.type == 'integer'">{{bean[f.name]}}</td>
+                                            <td ng-if="f.type == 'decimal'">{{bean[f.name]}}</td>
                                             <td ng-if="f.type == 'text'">{{bean[f.name]}}</td>
                                             <td ng-if="f.name == 'obj_categoria'">
                                                 <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">

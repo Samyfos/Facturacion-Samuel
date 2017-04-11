@@ -27,12 +27,12 @@
  */
 
 'use strict';
-moduloDocumento.controller('DocumentoEditController', ['$scope', '$routeParams', '$location', 'documentoService', 'serverService', '$filter', '$uibModal',
-    function ($scope, $routeParams, $location, documentoService, serverService, $filter, $uibModal) {
-        $scope.fields = documentoService.getFields();
-        $scope.obtitle = documentoService.getObTitle();
-        $scope.icon = documentoService.getIcon();
-        $scope.ob = documentoService.getTitle();
+moduloFactura.controller('FacturaEditController', ['$scope', '$routeParams', '$location', 'facturaService', 'serverService', '$filter', '$uibModal',
+    function ($scope, $routeParams, $location, facturaService, serverService, $filter, $uibModal) {
+        $scope.fields = facturaService.getFields();
+        $scope.obtitle = facturaService.getObTitle();
+        $scope.icon = facturaService.getIcon();
+        $scope.ob = facturaService.getTitle();
         $scope.title = "Editando un " + $scope.obtitle;
         $scope.op = "plist";
         $scope.status = null;
@@ -40,8 +40,11 @@ moduloDocumento.controller('DocumentoEditController', ['$scope', '$routeParams',
         $scope.debugging = serverService.debugging();
         $scope.bean = {};
         //---
-        $scope.bean.obj_tipodocumento = {"id": 0};
-        $scope.show_obj_tipodocumento = true;
+        $scope.bean.obj_empleado = {"id": 0};
+        $scope.show_obj_empleado = true;
+
+        $scope.bean.obj_cliente = {"id": 0};
+        $scope.show_obj_cliente = true;
         //---
         $scope.id = $routeParams.id;
         serverService.promise_getOne($scope.ob, $scope.id).then(function (response) {
@@ -59,10 +62,13 @@ moduloDocumento.controller('DocumentoEditController', ['$scope', '$routeParams',
             $scope.status = "Error en la recepción de datos del servidor";
         });
         $scope.save = function () {
-            var arrinputdate = $scope.bean.fecha.split(" ");
+
+            var arrinputdate = $scope.bean.fechafactura.split(" ");
             var partes = arrinputdate[0].split("/");
-            var newDate = new Date(partes[2], partes[1] - 1, partes[0]);
-            $scope.bean.fecha = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
+            var partes2 = arrinputdate[1].split(":");
+
+            var newDate = new Date(partes[2], partes[1] - 1, partes[0],partes2[0],partes2[1]);
+            $scope.bean.fechafactura = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
 
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
@@ -91,30 +97,5 @@ moduloDocumento.controller('DocumentoEditController', ['$scope', '$routeParams',
         $scope.plist = function () {
             $location.path('/' + $scope.ob + '/plist');
         };
-        $scope.chooseOne = function (nameForeign, foreignObjectName, contollerName) {
-            var modalInstance = $uibModal.open({
-                templateUrl: 'js/' + foreignObjectName + '/selection.html',
-                controller: contollerName,
-                size: 'lg'
-            }).result.then(function (modalResult) {
-                $scope.bean[nameForeign].id = modalResult;
-            });
-        };
-        $scope.$watch('bean.obj_tipodocumento.id', function () {
-            if ($scope.bean) {
-                if ($scope.bean.obj_tipodocumento.id) {
-                    serverService.promise_getOne('tipodocumento', $scope.bean.obj_tipodocumento.id).then(function (response) {
-                        var old_id = $scope.bean.obj_tipodocumento.id;
-                        if (response.data.message.id != 0) {
-                            $scope.outerForm.obj_tipodocumento.$setValidity('exists', true);
-                            $scope.bean.obj_tipodocumento = response.data.message;
-                        } else {
-                            $scope.outerForm.obj_tipodocumento.$setValidity('exists', false);
-                            $scope.bean.obj_tipodocumento.id = old_id;
-                            $scope.bean.obj_tipodocumento.descripcion = "";
-                        }
-                    });
-                }
-            }
-        });
+        
     }]);

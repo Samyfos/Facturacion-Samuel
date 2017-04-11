@@ -28,12 +28,12 @@
 
 'use strict';
 
-moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', '$location', 'serverService', 'documentoService', '$filter', '$uibModal',
-    function ($scope, $routeParams, $location, serverService, documentoService, $filter, $uibModal) {
-        $scope.fields = documentoService.getFields();
-        $scope.obtitle = documentoService.getObTitle();
-        $scope.icon = documentoService.getIcon();
-        $scope.ob = documentoService.getTitle();
+moduloProveedor.controller('ProveedorNewController', ['$scope', '$routeParams', '$location', 'serverService', 'proveedorService', '$filter', '$uibModal',
+    function ($scope, $routeParams, $location, serverService, proveedorService, $filter, $uibModal) {
+        $scope.fields = proveedorService.getFields();
+        $scope.obtitle = proveedorService.getObTitle();
+        $scope.icon = proveedorService.getIcon();
+        $scope.ob = proveedorService.getTitle();
         $scope.title = "Creando un nuevo " + $scope.obtitle;
         $scope.op = "plist";
         $scope.status = null;
@@ -41,16 +41,12 @@ moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', 
         $scope.bean = {};
         $scope.bean.id = 0;
         //---
-        $scope.bean.obj_tipodocumento = {"id": 0};
-        $scope.show_obj_tipodocumento = true;
+        $scope.bean.obj_tipoproveedor = {"id": 0};
+        $scope.show_obj_tipoproveedor = true;
         //---
 
         $scope.save = function () {
-            var arrinputdate = $scope.bean.fecha.split(" ");
-            var partes = arrinputdate[0].split("/");
-            var newDate = new Date(partes[2], partes[1] - 1, partes[0]);
-            $scope.bean.fecha = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
-
+            
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
                 if (response.status == 200) {
@@ -87,18 +83,18 @@ moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', 
                 $scope.bean[nameForeign].id = modalResult;
             });
         };
-        $scope.$watch('bean.obj_tipodocumento.id', function () {
+        $scope.$watch('bean.obj_tipoproveedor.id', function () {
             if ($scope.bean) {
-                if ($scope.bean.obj_tipodocumento.id) {
-                    serverService.promise_getOne('tipodocumento', $scope.bean.obj_tipodocumento.id).then(function (response) {
-                        var old_id = $scope.bean.obj_tipodocumento.id;
+                if ($scope.bean.obj_tipoproveedor.id) {
+                    serverService.promise_getOne('tipoproveedor', $scope.bean.obj_tipoproveedor.id).then(function (response) {
+                        var old_id = $scope.bean.obj_tipoproveedor.id;
                         if (response.data.message.id != 0) {
-                            $scope.outerForm.obj_tipodocumento.$setValidity('exists', true);
-                            $scope.bean.obj_tipodocumento = response.data.message;
+                            $scope.outerForm.obj_tipoproveedor.$setValidity('exists', true);
+                            $scope.bean.obj_tipoproveedor = response.data.message;
                         } else {
-                            $scope.outerForm.obj_tipodocumento.$setValidity('exists', false);
-                            $scope.bean.obj_tipodocumento.id = old_id;
-                            $scope.bean.obj_tipodocumento.descripcion = "";
+                            $scope.outerForm.obj_tipoproveedor.$setValidity('exists', false);
+                            $scope.bean.obj_tipoproveedor.id = old_id;
+                            $scope.bean.obj_tipoproveedor.descripcion = "";
                         }
                     });
                 }

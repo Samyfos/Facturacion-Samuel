@@ -2,7 +2,8 @@
 moduloDirectivas.component('cplistfilter', {
     restrict: 'E',
     bindings: {
-        url: '<',
+        ob: '<',
+        op: '<',
         fields: '<',
         rpp: '<',
         numpage: '<',
@@ -22,7 +23,7 @@ moduloDirectivas.component('cplistfilter', {
                     } else {
                         self.filterExpression = 'and,' + self.filter + ',' + self.filteroperator + ',' + self.filtervalue;
                     }
-                    $location.path(self.url + '/' + self.numpage + '/' + self.rpp).search('filter', self.filterExpression).search('sfilter', self.sfilter).search('order', self.order);
+                    $location.path(self.ob + '/' + self.op + '/' + self.numpage + '/' + self.rpp).search('filter', self.filterExpression).search('sfilter', self.sfilter).search('order', self.order);
                 }
                 return false;
             }

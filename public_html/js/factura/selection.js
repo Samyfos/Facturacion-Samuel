@@ -28,13 +28,13 @@
 
 'use strict';
 
-moduloDocumento.controller('DocumentoSelectionController', ['$scope', '$uibModalInstance', '$routeParams', 'documentoService', 'serverService', '$location', 'sharedSpaceService',
-    function ($scope, $modalInstance, $routeParams, documentoService, serverService, $location, sharedSpaceService) {
-        $scope.fields = documentoService.getFields();
-        $scope.obtitle = documentoService.getObTitle();
-        $scope.icon = documentoService.getIcon();
+moduloFactura.controller('FacturaSelectionController', ['$scope', '$uibModalInstance', '$routeParams', 'facturaService', 'serverService', '$location', 'sharedSpaceService',
+    function ($scope, $modalInstance, $routeParams, facturaService, serverService, $location, sharedSpaceService) {
+        $scope.fields = facturaService.getFields();
+        $scope.obtitle = facturaService.getObTitle();
+        $scope.icon = facturaService.getIcon();
         $scope.title = "Selección de " + $scope.obtitle;
-        $scope.ob = documentoService.getTitle();
+        $scope.ob = facturaService.getTitle();
         $scope.op = "selection";
         $scope.numpage = 1;
         $scope.rpp = 10;

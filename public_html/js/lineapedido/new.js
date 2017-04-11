@@ -28,7 +28,7 @@
 
 'use strict';
 
-moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', '$location', 'serverService', 'lineapedidoService', '$filter', '$uibModal',
+moduloLineapedido.controller('LineapedidoNewController', ['$scope', '$routeParams', '$location', 'serverService', 'lineapedidoService', '$filter', '$uibModal',
     function ($scope, $routeParams, $location, serverService, lineapedidoService, $filter, $uibModal) {
         $scope.fields = lineapedidoService.getFields();
         $scope.obtitle = lineapedidoService.getObTitle();
@@ -46,8 +46,6 @@ moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', 
         //---
 
         $scope.save = function () {
-           
-
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
                 if (response.status == 200) {
@@ -84,22 +82,22 @@ moduloDocumento.controller('DocumentoNewController', ['$scope', '$routeParams', 
                 $scope.bean[nameForeign].id = modalResult;
             });
         };
-        $scope.$watch('bean.obj_tipolineapedido.id', function () {
-            if ($scope.bean) {
-                if ($scope.bean.obj_tipolineapedido.id) {
-                    serverService.promise_getOne('tipolineapedido', $scope.bean.obj_tipolineapedido.id).then(function (response) {
-                        var old_id = $scope.bean.obj_tipolineapedido.id;
-                        if (response.data.message.id != 0) {
-                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', true);
-                            $scope.bean.obj_tipolineapedido = response.data.message;
-                        } else {
-                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', false);
-                            $scope.bean.obj_tipolineapedido.id = old_id;
-                            $scope.bean.obj_tipolineapedido.descripcion = "";
-                        }
-                    });
-                }
-            }
-        });
+//        $scope.$watch('bean.obj_tipolineapedido.id', function () {
+//            if ($scope.bean) {
+//                if ($scope.bean.obj_tipolineapedido.id) {
+//                    serverService.promise_getOne('tipolineapedido', $scope.bean.obj_tipolineapedido.id).then(function (response) {
+//                        var old_id = $scope.bean.obj_tipolineapedido.id;
+//                        if (response.data.message.id != 0) {
+//                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', true);
+//                            $scope.bean.obj_tipolineapedido = response.data.message;
+//                        } else {
+//                            $scope.outerForm.obj_tipolineapedido.$setValidity('exists', false);
+//                            $scope.bean.obj_tipolineapedido.id = old_id;
+//                            $scope.bean.obj_tipolineapedido.descripcion = "";
+//                        }
+//                    });
+//                }
+//            }
+//        });
     }]);
 

@@ -5,9 +5,8 @@ moduloFactura.factory('facturaService', ['serverService', function (serverServic
                 return [
                     {name: "id", shortname: "ID", longname: "Identificador", visible: true, type: "id"},
                     {name: "fechafactura", shortname: "Fechafactura", longname: "Fechafactura", visible: true, type: "date", required: true},
-                    {name: "obj_empleado", shortname: "empleadoId", longname: "Empleado Id", visible: true, type: "specific", reference: "empleado"},
-                    {name: "obj_tipoempleado", shortname: "tipoEmpleado", longname: "Tipo Empleado", visible: true, type: "specific", reference: "empleado"},
-                    {name: "obj_cliente", shortname: "clienteId", longname: "Cliente Id", visible: true, type: "specific", reference: "cliente"}                    
+                    {name: "obj_empleado", shortname: "empleadoId", longname: "Empleado Id", visible: true, type: "foreign", reference: "empleado", descforeign: "nombre"},
+                    {name: "obj_cliente", shortname: "clienteId", longname: "Cliente Id", visible: true, type: "foreign", reference: "cliente", descforeign : "nombre"}                    
                 ];
             },
             getIcon: function () {

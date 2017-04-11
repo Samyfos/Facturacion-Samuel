@@ -28,12 +28,12 @@
 
 'use strict';
 
-moduloDocumento.controller('DocumentoRemoveController', ['$scope', '$routeParams', '$location', 'serverService', 'documentoService',
-    function ($scope, $routeParams, $location, serverService, documentoService) {
-        $scope.fields = documentoService.getFields();
-        $scope.obtitle = documentoService.getObTitle();
-        $scope.icon = documentoService.getIcon();
-        $scope.ob = documentoService.getTitle();
+moduloFactura.controller('FacturaRemoveController', ['$scope', '$routeParams', '$location', 'serverService', 'facturaService',
+    function ($scope, $routeParams, $location, serverService, facturaService) {
+        $scope.fields = facturaService.getFields();
+        $scope.obtitle = facturaService.getObTitle();
+        $scope.icon = facturaService.getIcon();
+        $scope.ob = facturaService.getTitle();
         $scope.title = "Borrado de " + $scope.obtitle;
         $scope.id = $routeParams.id;
         $scope.status = null;

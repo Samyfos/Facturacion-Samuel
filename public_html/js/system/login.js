@@ -1,12 +1,12 @@
 'use strict';
-moduloEmpleado.controller('LoginController', ['$scope', '$routeParams', '$location', 'serverService', 'sessionService',
+moduloSistema.controller('LoginController', ['$scope', '$routeParams', '$location', 'serverService', 'sessionService',
     function ($scope, $routeParams, $location, serverService, sessionService) {
         $scope.title = "Formulario de entrada al sistema";
         $scope.icon = "fa-file-text-o";
         $scope.user = {};
         if (serverService.debugging()) {
-            $scope.user.username = 'pons';
-            $scope.user.password = 'pons';
+            $scope.user.username = 'admin';
+            $scope.user.password = 'admin';
             //$scope.user.password = '79063E8037FFF16D297A1FE65136F1251126CDDB2CC9870ECF8D653835538E85';
         }
         $scope.login = function () {

@@ -28,13 +28,13 @@
 
 'use strict';
 
-moduloTipoempleado.controller('TipoempleadoSelectionController', ['$scope', '$uibModalInstance', '$routeParams', 'tipoempleadoService', 'serverService', '$location', 'sharedSpaceService',
-    function ($scope, $modalInstance, $routeParams, tipoempleadoService, serverService, $location, sharedSpaceService) {
-        $scope.fields = tipoempleadoService.getFields();
-        $scope.obtitle = tipoempleadoService.getObTitle();
-        $scope.icon = tipoempleadoService.getIcon();
+moduloEmpleado.controller('EmpleadoSelectionController', ['$scope', '$uibModalInstance', '$routeParams', 'empleadoService', 'serverService', '$location', 'sharedSpaceService',
+    function ($scope, $modalInstance, $routeParams, empleadoService, serverService, $location, sharedSpaceService) {
+        $scope.fields = empleadoService.getFields();
+        $scope.obtitle = empleadoService.getObTitle();
+        $scope.icon = empleadoService.getIcon();
         $scope.title = "Selección de " + $scope.obtitle;
-        $scope.ob = tipoempleadoService.getTitle();
+        $scope.ob = empleadoService.getTitle();
         $scope.op = "selection";
         $scope.numpage = 1;
         $scope.rpp = 10;

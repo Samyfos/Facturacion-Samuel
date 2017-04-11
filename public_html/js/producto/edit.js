@@ -46,6 +46,8 @@ moduloProducto.controller('ProductoEditController', ['$scope', '$routeParams', '
         $scope.bean.obj_proveedor = {"id": 0};
         $scope.show_obj_proveedor = true;
         //---
+        
+        //---
         $scope.id = $routeParams.id;
         serverService.promise_getOne($scope.ob, $scope.id).then(function (response) {
             if (response.status == 200) {
@@ -62,12 +64,7 @@ moduloProducto.controller('ProductoEditController', ['$scope', '$routeParams', '
             $scope.status = "Error en la recepción de datos del servidor3";
         });
         $scope.save = function () {
-            if (!$scope.bean.obj_proveedor.id > 0) {
-                $scope.bean.obj_proveedor.id = null;
-            }
-            if (!$scope.bean.obj_categoria.id > 0) {
-                $scope.bean.obj_categoria.id = null;
-            }
+            
 
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
@@ -106,5 +103,5 @@ moduloProducto.controller('ProductoEditController', ['$scope', '$routeParams', '
             });
         };
 
-
+       
     }]);

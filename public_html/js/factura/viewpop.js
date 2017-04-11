@@ -28,12 +28,12 @@
 'use strict';
 
 
-moduloDocumento.controller('DocumentoViewpopController', ['$scope', '$routeParams', 'serverService', 'documentoService', '$location', '$uibModalInstance', 'id',
-    function ($scope, $routeParams, serverService, documentoService, $location, $uibModalInstance, id) {
-        $scope.fields = documentoService.getFields();
-        $scope.obtitle = documentoService.getObTitle();
-        $scope.icon = documentoService.getIcon();
-        $scope.ob = documentoService.getTitle();
+moduloFactura.controller('FacturaViewpopController', ['$scope', '$routeParams', 'serverService', 'facturaService', '$location', '$uibModalInstance', 'id',
+    function ($scope, $routeParams, serverService, facturaService, $location, $uibModalInstance, id) {
+        $scope.fields = facturaService.getFields();
+        $scope.obtitle = facturaService.getObTitle();
+        $scope.icon = facturaService.getIcon();
+        $scope.ob = facturaService.getTitle();
         $scope.title = "Vista de " + $scope.obtitle;
         $scope.id = id;
         $scope.status = null;

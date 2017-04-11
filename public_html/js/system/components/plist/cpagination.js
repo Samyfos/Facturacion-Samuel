@@ -2,7 +2,8 @@
 moduloDirectivas.component('cplistpagination', {
     restrict: 'E',
     bindings: {
-        url: '<',
+        ob: '<',
+        op: '<',
         numpage: '<',
         rpp: '<',
         pages: '<',
@@ -17,7 +18,7 @@ moduloDirectivas.component('cplistpagination', {
             var self = this;
             self.gotopage = function (numpage) {
                 self.numpage = numpage;
-                $location.path(self.url + '/' + self.numpage + '/' + self.rpp).search('filter', self.filterparams).search('sfilter', self.sfilterparams).search('order', self.orderparams);
+                $location.path(self.ob + '/' + self.op + '/' + self.numpage + '/' + self.rpp).search('filter', self.filterparams).search('sfilter', self.sfilterparams).search('order', self.orderparams);
                 return false;
             };
             self.getRangeArray = serverService.getRangeArray;

@@ -108,7 +108,7 @@ THE SOFTWARE.
                                                 <div ng-if="f.visible && f.type == 'date'" class="text-center">{{obj[f.name]}}</div>
                                                 <div ng-if="f.visible && f.type == 'text'" class="text-left">{{obj[f.name]|clipString}}</div>
                                                 <!------------------------------------------------>
-                                                <div ng-if="f.visible && f.name == 'obj_tipoempleado'" class="text-center">{{obj.obj_tipoempleado.id}}</div>
+                                                <div ng-if="f.visible && f.name == 'obj_tipoempleado'" class="text-center">{{obj.obj_tipoempleado.descripcion}}</div>
                                             </td>
                                             <td plistoperationbarspa></tdspa>
                                                 <button ng-click="count = count + 1;alert(count)" ng-init="count = 0">

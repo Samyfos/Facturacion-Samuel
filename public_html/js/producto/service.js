@@ -5,10 +5,10 @@ moduloProducto.factory('productoService', ['serverService', function (serverServ
                 return [
                     {name: "id", shortname: "ID", longname: "Identificador", visible: true, type: "id"},
                     {name: "nombre", shortname: "Nombre", longname: "Nombre", visible: true, type: "text", required: true},
-                    {name: "precio", shortname: "Precio", longname: "Precio", visible: true, type: "integer", required: true},
+                    {name: "precio", shortname: "Precio", longname: "Precio", visible: true, type: "decimal", required: true},
                     {name: "existencias", shortname: "Existencias", longname: "Existencias", visible: true, type: "text", required: true},
-                    {name: "obj_categoria", shortname: "categoriaId", longname: "categoriaId", visible: true, type: "foreign", reference: "categoria", descforeign: "descripcion"},
-                    {name: "obj_proveedor", shortname: "proveedorid", longname: "proveedorid", visible: true, type: "foreign", reference: "proveedor", descforeign: "nombreempresa"}
+                    {name: "obj_categoria", shortname: "categoriaId", longname: "Categoria Id", visible: true, type: "foreign", reference: "categoria", descforeign: "nombre"},
+                    {name: "obj_proveedor", shortname: "proveedorId", longname: "Proveedor Id", visible: true, type: "foreign", required: true, reference: "proveedor", descforeign: "nombreempresa"}
                 ];
             },
             getIcon: function () {

@@ -34,22 +34,18 @@ moduloProducto.controller('ProductoNewController', ['$scope', '$routeParams', '$
         $scope.obtitle = productoService.getObTitle();
         $scope.icon = productoService.getIcon();
         $scope.ob = productoService.getTitle();
-        $scope.title = "Creando un nuevo " + $scope.obtitle;
+        $scope.title = "Creando una nueva " + $scope.obtitle;
         $scope.op = "plist";
         $scope.status = null;
         $scope.debugging = serverService.debugging();
         $scope.bean = {};
         $scope.bean.id = 0;
         //---
-        $scope.bean.obj_tipoproducto = {"id": 0};
-        $scope.show_obj_tipoproducto = true;
-        //---
+        $scope.bean.obj_categoria = {"id": 0};
+        $scope.bean.obj_proveedor = {"id": 0};
+        //----
 
         $scope.save = function () {
-            var arrinputdate = $scope.bean.fecha.split(" ");
-            var partes = arrinputdate[0].split("/");
-            var newDate = new Date(partes[2], partes[1] - 1, partes[0]);
-            $scope.bean.fecha = $filter('date')(newDate, "dd/MM/yyyy HH:mm");
 
             var jsonToSend = {json: JSON.stringify(serverService.array_identificarArray($scope.bean))};
             serverService.promise_setOne($scope.ob, jsonToSend).then(function (response) {
@@ -87,22 +83,6 @@ moduloProducto.controller('ProductoNewController', ['$scope', '$routeParams', '$
                 $scope.bean[nameForeign].id = modalResult;
             });
         };
-        $scope.$watch('bean.obj_tipoproducto.id', function () {
-            if ($scope.bean) {
-                if ($scope.bean.obj_tipoproducto.id) {
-                    serverService.promise_getOne('tipoproducto', $scope.bean.obj_tipoproducto.id).then(function (response) {
-                        var old_id = $scope.bean.obj_tipoproducto.id;
-                        if (response.data.message.id != 0) {
-                            $scope.outerForm.obj_tipoproducto.$setValidity('exists', true);
-                            $scope.bean.obj_tipoproducto = response.data.message;
-                        } else {
-                            $scope.outerForm.obj_tipoproducto.$setValidity('exists', false);
-                            $scope.bean.obj_tipoproducto.id = old_id;
-                            $scope.bean.obj_tipoproducto.descripcion = "";
-                        }
-                    });
-                }
-            }
-        });
+
     }]);
 

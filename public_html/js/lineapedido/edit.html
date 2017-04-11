@@ -46,74 +46,45 @@ THE SOFTWARE.
                                         <key ide="bean[f.name]" name="f.name" disable="false"></key> 
                                     </div>
                                 </div>
-                                <!------------------------------------------------->
-                                <div ng-if="f.type == 'text'"
+                                 
+                                 <!------------------------------------------------->
+                                <div ng-if="f.type == 'integer'"
                                      id="{{f.name}}-group"
                                      class="form-group"
-                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern) ||
-                                                 (outerForm[f.name].$error.required)}">
-                                    <label class="col-sm-2 control-label" for="{{f.name}}">
-                                        <span ng-if="{{f.required}}">*</span>
-                                        {{f.longname}}:
-                                    </label>
-                                    <div class="control col-sm-8">
-                                        <input ng-model="bean[f.name]"
-                                               type="text"
-                                               class="form-control"
-                                               id="{{f.name}}"
-                                               name="{{f.name}}"
-                                               ng-pattern="f.pattern"
-                                               placeholder="{{f.name}}"
-                                               maxlength="{{f.maxlength}}"
-                                               ng-required="{{f.required}}"
-                                               />
-                                        <span class="help-block" ng-if="outerForm[f.name].$error.required">El campo es obligatorio</span>
-                                        <!-- <span class="help-block" ng-if="outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>-->
+                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern && !outerForm[f.name].$pristine) ||
+                                                             (outerForm[f.name].$error.required && !outerForm[f.name].$pristine)}">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>
+                                    <div class="control col-sm-4">
+                                        <componentenumero
+                                            decimalnumber="bean[f.name]"
+                                            name="f.name"
+                                            maxlength="f.maxlength"
+                                            pattern="f.pattern"
+                                            required="f.required">
+                                        </componentenumero>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
                                     </div>
                                 </div>
                                 <!------------------------------------------------->
-                               
                                 <!------------------------------------------------->
-                                <div class="form-group"
-                                     ng-if="show_obj_tipolineapedido && (f.name == 'obj_tipolineapedido')"
-                                     ng-class="{'has-error': (outerForm.obj_tipolineapedido.$error.required ||
-                                                 outerForm.obj_tipolineapedido.$error.exists ||
-                                                 outerForm.obj_tipolineapedido.$error.validatemin)}"
-                                     ng-if="show_obj_tipolineapedido">
-                                    <label class="col-sm-2 control-label" for="obj_tipolineapedido">Tipo de Lineapedido:</label>
-                                    <div class="control col-sm-3">
-                                        <div class="input-group foreign" id="obj_tipolineapedido_group">
-                                            <span class="input-group-addon" id="obj_tipolineapedido_button" ng-click="chooseOne('obj_tipolineapedido', 'tipolineapedido', 'TipolineapedidoSelectionController')">
-                                                <span class="glyphicon glyphicon-search">
-                                                </span>
-                                            </span>
-                                            <input type="text"
-                                                   ng-model-options="{debounce: 1000}"
-                                                   ng-change="obj_tipolineapedido_change"
-                                                   ng-model="bean.obj_tipolineapedido.id"
-                                                   validatemin="1"
-                                                   ng-required="true"
-                                                   aria-describedby="basic-addon2"
-                                                   class="form-control"
-                                                   id="obj_tipolineapedido"
-                                                   name="obj_tipolineapedido"
-                                                   size="5"
-                                                   maxlength="5">
-                                            <span class="input-group-addon">
-                                                <span>{{bean.obj_tipolineapedido.descripcion}}</span>
-                                            </span>
-                                        </div>
-                                        <span class="help-block" ng-if="outerForm.obj_tipolineapedido.$error.required">El tipo de lineapedido es obligatorio</span>
-                                        <span class="help-block" ng-if="outerForm.obj_tipolineapedido.$error.validatemin">Debes elegir un tipo de lineapedido</span>
-                                        <span class="help-block" ng-if="outerForm.obj_tipolineapedido.$error.exists">El tipo de lineapedido no existe</span>
-                                    </div>
+                                <div ng-if="f.type == 'foreign'" class="form-group">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>
+                                    <foreign-key class="col-md-4"                                                 
+                                                 name="f.name"
+                                                 required="f.required"
+                                                 reference="f.reference"
+                                                 description="f.descforeign"
+                                                 bean="bean[f.name]"
+                                                 form="outerForm">   
+                                    </foreign-key>
                                 </div>
                                 <!------------------------------------------------->
                             </div>
                             <div class="control-group text-right">
                                 <div class="controls">
                                     <a class="btn btn-primary" ng-click="save()" ng-disabled="!outerForm.$valid">Guardar</a>
-                                    <a class="btn btn-default" ng-click="plist()">Ir al listado de lineapedidos</a>
+                                    <a class="btn btn-default" ng-click="plist()">Ir al listado de productos</a>
                                     <a class="btn btn-default" ng-click="close()">Cerrar</a>
                                 </div>
                             </div>

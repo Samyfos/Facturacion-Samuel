@@ -58,9 +58,14 @@ THE SOFTWARE.
                                             <td ng-if="f.type == 'id'"><b>{{bean[f.name]}}</b></td>
                                             <td ng-if="f.type == 'date'">{{bean[f.name]}}</td>
                                             <td ng-if="f.type == 'text'">{{bean[f.name]}}</td>
-                                            <td ng-if="f.name.startsWith('obj_')">
+                                            <td ng-if="f.name.startsWith('obj_empleado')">
                                                 <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
-                                                    {{bean[f.name]["descripcion"]}}
+                                                    {{bean[f.name]["nombre"]}}
+                                                </a>
+                                            </td>
+                                             <td ng-if="f.name.startsWith('obj_cliente')">
+                                                <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
+                                                    {{bean[f.name]["nombre"]}}
                                                 </a>
                                             </td>
                                         </tr>

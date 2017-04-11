@@ -47,84 +47,81 @@ THE SOFTWARE.
                                     </div>
                                 </div>
                                 <!------------------------------------------------->
-                                <div ng-if="f.type == 'text'"
+                                <div ng-if="f.type === 'textarea'" id="{{f.name}}-group" class="form-group"
+                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern || outerForm[f.name].$error.required) && !outerForm[f.name].$pristine}">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required" />
+                                    <div class="control col-sm-8">
+                                        <textarea ng-model="bean[f.name]" class="form-control" id="{{f.name}}" name="{{f.name}}"
+                                                  placeholder="{{f.name}}" ng-required="{{f.required}}" ng-pattern="f.pattern" rows="10">
+                                        </textarea>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
+                                    </div>
+                                </div>
+                                <!------------------------------------------------->
+                                <div ng-if="f.type == 'text'" 
+                                     id="{{f.name}}-group" 
+                                     class="form-group" 
+                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern && !outerForm[f.name].$pristine) ||
+                                                             (outerForm[f.name].$error.required && !outerForm[f.name].$pristine)}">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required" />  
+                                    <div class="control col-sm-8"> 
+                                        <texto model="bean[f.name]" name="f.name" longname="f.longname" pattern="f.pattern" length="f.maxlength" required="f.required"></texto>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
+                                    </div>
+                                </div>   
+                                <!------------------------------------------------->
+                                <div ng-if="f.type == 'decimal'"
                                      id="{{f.name}}-group"
                                      class="form-group"
-                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern) ||
-                                                 (outerForm[f.name].$error.required)}">
-                                    <label class="col-sm-2 control-label" for="{{f.name}}">
-                                        <span ng-if="{{f.required}}">*</span>
-                                        {{f.longname}}:
-                                    </label>
-                                    <div class="control col-sm-8">
-                                        <input ng-model="bean[f.name]"
-                                               type="text"
-                                               class="form-control"
-                                               id="{{f.name}}"
-                                               name="{{f.name}}"
-                                               ng-pattern="f.pattern"
-                                               placeholder="{{f.name}}"
-                                               maxlength="{{f.maxlength}}"
-                                               ng-required="{{f.required}}"
-                                               />
-                                        <span class="help-block" ng-if="outerForm[f.name].$error.required">El campo es obligatorio</span>
-                                        <span class="help-block" ng-if="outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
+                                     ng-class="{'has-error': (outerForm[f.name].$error.pattern && !outerForm[f.name].$pristine) ||
+                                                             (outerForm[f.name].$error.required && !outerForm[f.name].$pristine)}">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>
+                                    <div class="control col-sm-4">
+                                        <componentenumero
+                                            decimalnumber="bean[f.name]"
+                                            name="f.name"
+                                            maxlength="f.maxlength"
+                                            pattern="f.pattern"
+                                            required="f.required">
+                                        </componentenumero>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="!outerForm[f.name].$pristine && outerForm[f.name].$error.pattern">El campo no tiene formato adecuado: {{f.help}}</span>
                                     </div>
                                 </div>
                                 <!------------------------------------------------->
                                 <div class="form-group"
-                                     ng-if="f.name == 'fecha'"
+                                     ng-if="f.name == 'fecha_peticion'"
                                      id="fecha-group"
-                                     ng-class="{'has-error': (outerForm.fecha.$error.required ||
-                                                 outerForm.fecha.$error.valid)
-                                                 && !outerForm.fecha.$pristine}">
+                                     ng-class="{'has-error': (outerForm.fecha_peticion.$error.required ||
+                                                             outerForm.fecha_peticion.$error.valid)
+                                                             && !outerForm.fecha_peticion.$pristine}">
                                     <clabel wide="2" name="f.name" longname="f.longname" required="f.required" /> 
                                     <div class="control col-sm-3">
                                         <date-picker ng-if="f.type == 'date'" 
                                                      name="f.name" 
                                                      required="f.required" 
-                                                     model="bean.fecha" 
+                                                     model="bean.fecha_peticion" 
                                                      form="outerForm" /> 
-                                        <span class="help-block" ng-if="outerForm.fecha.$error.required">El campo es obligatorio</span>
+                                        <span class="help-block" ng-if="outerForm.fecha_peticion.$error.required">El campo es obligatorio</span>
                                     </div>
                                 </div>
                                 <!------------------------------------------------->
-                                <div class="form-group"
-                                     ng-if="show_obj_tipoproducto && (f.name == 'obj_tipoproducto')"
-                                     ng-class="{'has-error': (outerForm.obj_tipoproducto.$error.required ||
-                                                 outerForm.obj_tipoproducto.$error.exists ||
-                                                 outerForm.obj_tipoproducto.$error.validatemin)}"
-                                     ng-if="show_obj_tipoproducto">
-                                    <label class="col-sm-2 control-label" for="obj_tipoproducto">Tipo de Producto:</label>
-                                    <div class="control col-sm-3">
-                                        <div class="input-group foreign" id="obj_tipoproducto_group">
-                                            <span class="input-group-addon" id="obj_tipoproducto_button" ng-click="chooseOne('obj_tipoproducto', 'tipoproducto', 'TipoproductoSelectionController')">
-                                                <span class="glyphicon glyphicon-search">
-                                                </span>
-                                            </span>
-                                            <input type="text"
-                                                   ng-model-options="{debounce: 1000}"
-                                                   ng-change="obj_tipoproducto_change"
-                                                   ng-model="bean.obj_tipoproducto.id"
-                                                   validatemin="1"
-                                                   ng-required="true"
-                                                   aria-describedby="basic-addon2"
-                                                   class="form-control"
-                                                   id="obj_tipoproducto"
-                                                   name="obj_tipoproducto"
-                                                   size="5"
-                                                   maxlength="5">
-                                            <span class="input-group-addon">
-                                                <span>{{bean.obj_tipoproducto.descripcion}}</span>
-                                            </span>
-                                        </div>
-                                        <span class="help-block" ng-if="outerForm.obj_tipoproducto.$error.required">El tipo de producto es obligatorio</span>
-                                        <span class="help-block" ng-if="outerForm.obj_tipoproducto.$error.validatemin">Debes elegir un tipo de producto</span>
-                                        <span class="help-block" ng-if="outerForm.obj_tipoproducto.$error.exists">El tipo de producto no existe</span>
-                                    </div>
+                                <div ng-if="f.type == 'foreign'" class="form-group">
+                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>
+                                    <foreign-key class="col-md-4"                                                 
+                                                 name="f.name"
+                                                 required="f.required"
+                                                 reference="f.reference"
+                                                 description="f.descforeign"
+                                                 bean="bean[f.name]"
+                                                 form="outerForm">   
+                                    </foreign-key>
                                 </div>
                                 <!------------------------------------------------->
                             </div>
+
                             <div class="control-group text-right">
                                 <div class="controls">
                                     <a class="btn btn-primary" ng-click="save()" ng-disabled="!outerForm.$valid">Guardar</a>
