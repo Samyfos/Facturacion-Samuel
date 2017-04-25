@@ -34,41 +34,51 @@ THE SOFTWARE.
         <span class="icon-bar"></span>
     </button>
     <a class='navbar-brand'  href='home'>
-        <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i> sisane <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i>
+        <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i>Facturación <i class="fa fa-th fa-1x"></i><i class="fa fa-th fa-1x"></i>
     </a>
 </div>
 <div id="navbar" class="navbar-collapse collapse" >
     <ul class="nav navbar-nav" id="appMenu">
-        <li ng-class="{ active: isActive('/home')}"><a href="home">Home</a></li>            
+        <li ng-class="{ active: isActive('/home')}"><a href="home">Inicio</a></li>            
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-icon-list-alt"></i>Proyecto<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">                
-                <li ng-class="{ active: isActive('/{{meta.cliente.name}}/plist')}"><a href="{{meta.cliente.name}}/plist"><i class="fa fa-fw {{meta.cliente.icon}}"></i>{{meta.cliente.title}}</a></li>                
-                <li ng-class="{ active: isActive('/{{meta.tipoempleado.name}}/plist')}"><a href="{{meta.tipoempleado.name}}/plist"><i class="fa fa-fw {{meta.tipoempleado.icon}}"></i>{{meta.tipoempleado.title}}</a></li>                                
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-icon-list-alt"></i>Área Empleados<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">  
                 <li ng-class="{ active: isActive('/{{meta.empleado.name}}/plist')}"><a href="{{meta.empleado.name}}/plist"><i class="fa fa-fw {{meta.empleado.icon}}"></i>{{meta.empleado.title}}</a></li>                                
-                <li ng-class="{ active: isActive('/{{meta.factura.name}}/plist')}"><a href="{{meta.factura.name}}/plist"><i class="fa fa-fw {{meta.factura.icon}}"></i>{{meta.factura.title}}</a></li>                                
-                <li ng-class="{ active: isActive('/{{meta.lineapedido.name}}/plist')}"><a href="{{meta.lineapedido.name}}/plist"><i class="fa fa-fw {{meta.lineapedido.icon}}"></i>{{meta.lineapedido.title}}</a></li>                                
-                <li ng-class="{ active: isActive('/{{meta.categoria.name}}/plist')}"><a href="{{meta.categoria.name}}/plist"><i class="fa fa-fw {{meta.categoria.icon}}"></i>{{meta.categoria.title}}</a></li>                    
-                <li ng-class="{ active: isActive('/{{meta.proveedor.name}}/plist')}"><a href="{{meta.proveedor.name}}/plist"><i class="fa fa-fw {{meta.proveedor.icon}}"></i>{{meta.proveedor.title}}</a></li>                                
-                <li ng-class="{ active: isActive('/{{meta.producto.name}}/plist')}"><a href="{{meta.producto.name}}/plist"><i class="fa fa-fw {{meta.producto.icon}}"></i>{{meta.producto.title}}</a></li>                                
+                <li ng-class="{ active: isActive('/{{meta.tipoempleado.name}}/plist')}"><a href="{{meta.tipoempleado.name}}/plist"><i class="fa fa-fw {{meta.tipoempleado.icon}}"></i>{{meta.tipoempleado.title}}</a></li>                                
+                <li ng-class="{ active: isActive('/{{meta.cliente.name}}/plist')}"><a href="{{meta.cliente.name}}/plist"><i class="fa fa-fw {{meta.cliente.icon}}"></i>{{meta.cliente.title}}</a></li>                
 
-
-
-
-
-
-                <!--
-                                <li class="divider"></li>                
-                                <li class="dropdown-header">Servicios hospitalarios</li>
-                                <li ng-class="{ active: isActive('/{{meta.servicio.name}}/plist')}"><a href="{{meta.servicio.name}}/plist"><i class="fa fa-fw {{meta.servicio.icon}}"></i>{{meta.servicio.title}}</a></li>
-                                <li class="dropdown-header">Medicos</li>                
-                                <li ng-class="{ active: isActive('/{{meta.comentario.name}}/plist')}"><a href="{{meta.comentario.name}}/plist"><i class="fa fa-fw {{meta.comentario.icon}}"></i>{{meta.comentario.title}}</a></li>                                
-                <!--
-                <li class="dropdown-header">Enfermeros</li>                
-                <li ng-class="{ active: isActive('/enfermero/plist')}"><a href="enfermero/plist"><i class="fa fa-fw fa-question-circle-o"></i>Enfermero/a</a></li>                                
-                -->
             </ul>
         </li>
+        <li class="dropdown">
+
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-icon-list-alt"></i>Área Clientes<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">  
+
+                <li ng-class="{ active: isActive('/{{meta.factura.name}}/plist')}"><a href="{{meta.factura.name}}/plist"><i class="fa fa-fw {{meta.factura.icon}}"></i>{{meta.factura.title}}</a></li>                                
+                <li ng-class="{ active: isActive('/{{meta.lineapedido.name}}/plist')}"><a href="{{meta.lineapedido.name}}/plist"><i class="fa fa-fw {{meta.lineapedido.icon}}"></i>{{meta.lineapedido.title}}</a></li>                                
+            </ul>
+        </li>
+        <li class="dropdown">
+
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="fa fa-icon-list-alt"></i>Productos?<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">  
+
+                <li ng-class="{ active: isActive('/{{meta.producto.name}}/plist')}"><a href="{{meta.producto.name}}/plist"><i class="fa fa-fw {{meta.producto.icon}}"></i>{{meta.producto.title}}</a></li>   
+                <li ng-class="{ active: isActive('/{{meta.categoria.name}}/plist')}"><a href="{{meta.categoria.name}}/plist"><i class="fa fa-fw {{meta.categoria.icon}}"></i>{{meta.categoria.title}}</a></li>                    
+                <li ng-class="{ active: isActive('/{{meta.proveedor.name}}/plist')}"><a href="{{meta.proveedor.name}}/plist"><i class="fa fa-fw {{meta.proveedor.icon}}"></i>{{meta.proveedor.title}}</a></li>                                
+            </ul>
+
+
+            <!--
+                            <li class="divider"></li>                
+                            <li class="dropdown-header">Servicios hospitalarios</li>
+                            <li ng-class="{ active: isActive('/{{meta.servicio.name}}/plist')}"><a href="{{meta.servicio.name}}/plist"><i class="fa fa-fw {{meta.servicio.icon}}"></i>{{meta.servicio.title}}</a></li>
+                            <li class="dropdown-header">Medicos</li>                
+                            <li ng-class="{ active: isActive('/{{meta.comentario.name}}/plist')}"><a href="{{meta.comentario.name}}/plist"><i class="fa fa-fw {{meta.comentario.icon}}"></i>{{meta.comentario.title}}</a></li>                                
+            <!--
+            <li class="dropdown-header">Enfermeros</li>                
+            <li ng-class="{ active: isActive('/enfermero/plist')}"><a href="enfermero/plist"><i class="fa fa-fw fa-question-circle-o"></i>Enfermero/a</a></li>                                
+            -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <!-- <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->

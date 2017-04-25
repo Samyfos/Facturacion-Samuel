@@ -30,7 +30,7 @@ THE SOFTWARE.
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-default">
+                <div class="panel panel-danger">
                     <div class="panel-heading" style="font-family:Oswald , serif;"  ng-include="'js/system/header.html'"></div>
                     <div class="panel-body" ng-cloak>
                         <div class="row">
@@ -43,7 +43,7 @@ THE SOFTWARE.
                         <div class="row">
                             <div class="col-xs-12" ng-if="!status">
                                 <div role="tabpanel">
-                                    <ul class="nav nav-tabs" role="tablist">
+                                    <ul class="nav nav-pills" role="tablist">
                                         <li role="presentation" class="active">
                                             <a data-target="#pane0" aria-controls="pane0" role="tab" data-toggle="tab" aria-expanded="false">Consulta</a>
                                         </li>
@@ -52,7 +52,7 @@ THE SOFTWARE.
                                         <li role="presentation"><a data-target="#pane3" aria-controls="pane3" role="tab" data-toggle="tab">Filtro de cliente</a></li>
                                         <li role="presentation"><a data-target="#pane4" aria-controls="pane4" role="tab" data-toggle="tab">Nuevo {{obtitle}}</a></li>
                                     </ul>
-                                    <div class="tab-content">
+                                    <div class="tab-content-justified">
                                         <div role="tabpanel" id="pane0" class="tab-pane fade active in">
                                             <p></p>
                                             <div class="row">

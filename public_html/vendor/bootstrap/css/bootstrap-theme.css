@@ -273,7 +273,7 @@ fieldset[disabled] .btn-warning.active {
   background-image:      -o-linear-gradient(top, #d9534f 0%, #c12e2a 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#d9534f), to(#c12e2a));
   background-image:         linear-gradient(to bottom, #d9534f 0%, #c12e2a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#28a4c9', endColorstr='#ffc12e2a', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #b92c28;
