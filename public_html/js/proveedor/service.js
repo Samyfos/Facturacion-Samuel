@@ -13,7 +13,7 @@ moduloProveedor.factory('proveedorService', ['serverService', function (serverSe
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-truck";
             },
             getObTitle: function () {
                 return "proveedor";

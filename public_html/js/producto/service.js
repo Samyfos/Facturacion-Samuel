@@ -12,7 +12,7 @@ moduloProducto.factory('productoService', ['serverService', function (serverServ
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-product-hunt";
             },
             getObTitle: function () {
                 return "producto";

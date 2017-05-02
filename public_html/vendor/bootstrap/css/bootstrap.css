@@ -1102,7 +1102,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: red;
   text-decoration: underline;
 }
 a:focus {
@@ -4096,8 +4096,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #337ab7;
+  color: blue;
+  background-color: lightskyblue;
 }
 .nav-stacked > li {
   float: none;

@@ -13,7 +13,7 @@ moduloCliente.factory('clienteService', ['serverService', function (serverServic
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-male";
             },
             getObTitle: function () {
                 return "cliente";

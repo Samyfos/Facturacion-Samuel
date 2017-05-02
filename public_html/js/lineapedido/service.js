@@ -10,7 +10,7 @@ moduloLineapedido.factory('lineapedidoService', ['serverService', function (serv
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-list";
             },
             getObTitle: function () {
                 return "lineapedido";

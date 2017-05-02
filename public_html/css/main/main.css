@@ -3519,7 +3519,7 @@ tbody.collapse.in {
       padding: 10px 15px; }
       .nav > li > a:hover, .nav > li > a:focus {
         text-decoration: none;
-        background-color: #c4cdc1; }
+        background-color: lightsteelblue; } //hover de los labels del nav-pills
     .nav > li.disabled > a {
       color: #98aead; }
       .nav > li.disabled > a:hover, .nav > li.disabled > a:focus {
@@ -3551,8 +3551,8 @@ tbody.collapse.in {
       .nav-tabs > li > a:hover {
         border-color: #c4cdc1 #c4cdc1 #ddd; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-      color: #6d9197;
-      background-color: #dee1dd;
+      color: blue;
+      background-color: lightblue;
       border: 1px solid #ddd;
       border-bottom-color: transparent;
       cursor: default; }
@@ -3564,8 +3564,9 @@ tbody.collapse.in {
   .nav-pills > li + li {
     margin-left: 2px; }
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color: #fff;
-    background-color: #658b6e; }
+    color: blue;
+    background-color: lightskyblue; }
+  //color de la letra de las  pestañas activas en el nav-pills
 
 .nav-stacked > li {
   float: none; }

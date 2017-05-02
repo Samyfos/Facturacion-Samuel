@@ -8,7 +8,7 @@ moduloCategoria.factory('categoriaService', ['serverService', function (serverSe
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-tags";
             },
             getObTitle: function () {
                 return "categoria";

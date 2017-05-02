@@ -10,7 +10,7 @@ moduloFactura.factory('facturaService', ['serverService', function (serverServic
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-wpforms";
             },
             getObTitle: function () {
                 return "factura";

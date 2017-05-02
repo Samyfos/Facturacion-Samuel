@@ -8,7 +8,7 @@ moduloTipoempleado.factory('tipoempleadoService', ['serverService', function (se
                 ];
             },
             getIcon: function () {
-                return "fa-user";
+                return "fa-users";
             },
             getObTitle: function () {
                 return "tipoempleado";
