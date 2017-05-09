@@ -156,9 +156,10 @@ THE SOFTWARE.
 
                                                     <div ng-if="f.visible && f.name == 'obj_factura'" class="text-center"><a href="factura/view/{{obj.obj_factura.id}}">{{obj.obj_factura.id}}</a></div>
                                                     <div ng-if="f.visible && f.name == 'obj_empleado'" class="text-center"><a href="empleado/view/{{obj.obj_empleado.id}}">{{obj.obj_empleado.id}}</a></div>
-                                                    <div ng-if="f.visible && f.name == 'obj_tipoempleado'" class="text-center"><a href="tipoempleado/view/{{obj.obj_tipoempleado.id}}">{{obj.obj_tipoempleado.descripcion}}</a></div>
                                                     <div ng-if="f.visible && f.name == 'obj_cliente'" class="text-center"><a href="cliente/view/{{obj.obj_cliente.id}}">{{obj.obj_cliente.nombre}}</a></div>
                                                     <div ng-if="f.visible && f.name == 'obj_producto'" class="text-center"><a href="producto/view/{{obj.obj_producto.id}}">{{obj.obj_producto.nombre}}</a></div>
+
+                                                    <div ng-if="f.visible && f.name == 'obj_producto_precio'" class="text-center"><a href="producto/view/{{obj.obj_producto.id}}">{{obj.obj_producto.precio}}</a></div>
 
 
 
@@ -227,8 +228,12 @@ THE SOFTWARE.
                                                 </td>
                                             </tr>
                                             -->
+
                                         </tbody>
-                                    </table>            
+
+
+                                    </table>
+                                    <h1>Precio total:{{acumular}}</h1>
                                 </div>
                             </div>                                
                         </div>  
@@ -239,9 +244,3 @@ THE SOFTWARE.
         </div>
     </div>     
 </div>
-
-
-
-
-
-

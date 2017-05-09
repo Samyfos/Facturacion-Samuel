@@ -51,6 +51,7 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
         $scope.status = null;
         $scope.debugging = serverService.debugging();
         $scope.url = $scope.ob + '/' + $scope.op;
+        $scope.acumular = 0;
         function getDataFromServer() {
             serverService.promise_getCount($scope.ob, $scope.filterExpression).then(function (response) {
                 if (response.status == 200) {
@@ -91,6 +92,17 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
 
             });
         };
+        $scope.total = function () {
+            $scope.acumular = 0;
+            for (var i = 0; i < $scope.page.length; i++) {
+                $scope.acumular += $scope.page[i].obj_producto.precio;
+            }
+        }
+
+       
+
+
+
         getDataFromServer();
     }]);
 
