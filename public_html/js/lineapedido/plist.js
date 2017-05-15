@@ -68,6 +68,14 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
                 if (response.status == 200) {
                     $scope.page = response.data.message;
                     $scope.status = "";
+                                  
+                                       
+                    $scope.acumular = 0;
+                    for (var i = 0; i < $scope.page.length; i++) {
+                        $scope.acumular += $scope.page[i].obj_producto.precio;
+                    }
+
+
                 } else {
                     $scope.status = "Error en la recepción de datos del servidor";
                 }
@@ -92,14 +100,9 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
 
             });
         };
-        $scope.total = function () {
-            $scope.acumular = 0;
-            for (var i = 0; i < $scope.page.length; i++) {
-                $scope.acumular += $scope.page[i].obj_producto.precio;
-            }
-        }
 
-       
+
+
 
 
 
