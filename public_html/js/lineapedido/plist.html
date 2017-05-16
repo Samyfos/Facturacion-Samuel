@@ -139,6 +139,62 @@ THE SOFTWARE.
                                     </div>
                                 </div>
 
+                                <!--------
+                                <div ng-hide id="imprimir"></div>
+                                <h1>Factura</h1>
+                                <table>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Tijeras</td>
+                                        <td>7</td>
+                                        <td>3</td>
+                                        <td>21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tijeras</td>
+                                        <td>7</td>
+                                        <td>3</td>
+                                        <td>21</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">Subtotal</td>
+                                        <td>250</td>
+                                    </tr> 
+                                    <tr>
+                                        <td colspan="3">Gastos de envío</td>
+                                        <td>5</td>
+                                    </tr> 
+                                    <tr>
+                                        <td colspan="3">Precio total</td>
+                                        <td>255</td>
+                                    </tr> 
+                                </table>
+                            </div>
+
+                                <--------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <div id="datos" ng-if="!status">
                                     <table class="table table-responsive table-bordered table-hover table-striped table-condensed dataTable no-footer">                                
                                         <thead plistheader></thead>
@@ -233,8 +289,13 @@ THE SOFTWARE.
 
 
                                     </table>
-                                    <div>Precio total:{{acumular}}</div>
+                                    <h3>Precio total de los productos en las lineas de pedido : {{acumular}}</h3>
+                                    </h2>
                                 </div>
+
+                                <button ng-click="imprimir()">
+                                    IMPRIMIR
+                                </button>
 
 
 

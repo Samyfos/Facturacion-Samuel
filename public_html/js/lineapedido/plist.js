@@ -68,8 +68,8 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
                 if (response.status == 200) {
                     $scope.page = response.data.message;
                     $scope.status = "";
-                                  
-                                       
+
+
                     $scope.acumular = 0;
                     for (var i = 0; i < $scope.page.length; i++) {
                         $scope.acumular += $scope.page[i].obj_producto.precio;
@@ -100,6 +100,27 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
 
             });
         };
+
+
+        $scope.imprimir = function () {
+            var tabla = document.getElementById('datos');  //obtenemos el objeto a imprimir
+            var ventana = window.open('', '_blank');  //abrimos una ventana vacía nueva
+//            ventana.document.getElementById('datos').innerHTML = '<h1>Hola</h1>';
+
+            var cabecera="<h1>Linea </h1>";
+
+
+            ventana.document.write(cabecera  + "titulo de samu" + tabla.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana            
+            ventana.document.close();  //cerramos el documento
+        }
+
+
+
+
+
+
+
+
 
 
 
