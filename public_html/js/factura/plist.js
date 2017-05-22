@@ -67,6 +67,14 @@ moduloFactura.controller('FacturaPListController', ['$scope', '$routeParams', '$
                 if (response.status == 200) {
                     $scope.page = response.data.message;
                     $scope.status = "";
+
+                    $scope.total = 0;
+                    for (var i = 0; i < $scope.page.length; i++) {
+                        $scope.total++;
+                    }
+
+
+
                 } else {
                     $scope.status = "Error en la recepción de datos del servidor";
                 }
@@ -91,6 +99,27 @@ moduloFactura.controller('FacturaPListController', ['$scope', '$routeParams', '$
 
             });
         };
+
+        $scope.imprimir = function () {
+            var tabla = document.getElementById('datos');  //obtenemos el objeto a imprimir
+            var ventana = window.open('', '_blank');  //abrimos una ventana vacía nueva
+//          ventana.document.getElementById('datos').innerHTML = '<h1>Hola</h1>';
+
+            var cabecera = "<h1>Factureca</h1>";
+            var titulo = "<h2>Listado de las facturas</h2>";
+            ventana.document.write(cabecera + titulo + tabla.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana            
+            ventana.document.close();  //cerramos el documento
+            ventana.print();  //imprimimos la ventana
+            ventana.close();  //cerramos la ventana
+        }
+
+
+
+
+
+
+
+
         getDataFromServer();
     }]);
 

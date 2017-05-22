@@ -4,7 +4,7 @@ moduloTipoempleado.factory('tipoempleadoService', ['serverService', function (se
             getFields: function () {
                 return [
                     {name: "id", shortname: "ID", longname: "Identificador", visible: true, type: "id"},
-                    {name: "descripcion", shortname: "Descipcion", longname: "Descripcion", visible: true, type: "text", required: true},
+                    {name: "descripcion", shortname: "Descripción", longname: "Descripcion", visible: true, type: "text", required: true},
                 ];
             },
             getIcon: function () {

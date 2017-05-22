@@ -154,8 +154,8 @@ THE SOFTWARE.
                                                     <div ng-if="f.visible && f.type == 'boolean'" class="text-center" ng-bind-html="obj[f.name] | booleanizate"></div>
                                                     <!------------------------------------------------>
 
-                                                    <div ng-if="f.visible && f.name == 'obj_empleado'" class="text-center"><a href="empleado/view/{{obj.obj_empleado.id}}">{{obj.obj_empleado.id}}</a></div>
-                                                    <div ng-if="f.visible && f.name == 'obj_cliente'" class="text-center"><a href="cliente/view/{{obj.obj_cliente.id}}">{{obj.obj_cliente.id}}</a></div>
+                                                    <div ng-if="f.visible && f.name == 'obj_empleado'" class="text-center"><a href="empleado/view/{{obj.obj_empleado.id}}">{{obj.obj_empleado.nombre}}</a></div>
+                                                    <div ng-if="f.visible && f.name == 'obj_cliente'" class="text-center"><a href="cliente/view/{{obj.obj_cliente.id}}">{{obj.obj_cliente.nombre}}</a></div>
 
 
                                                     <!------------------------------------------------>
@@ -227,8 +227,14 @@ THE SOFTWARE.
                                             </tr>
                                             -->
                                         </tbody>
-                                    </table>            
+                                    </table>
+                                    <h3>Total de Facturas guardadas : {{total}}</h3>
+
                                 </div>
+
+                                <button ng-click="imprimir()">
+                                    IMPRIMIR
+                                </button>
                             </div>                                
                         </div>  
                     </div>

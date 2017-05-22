@@ -75,6 +75,11 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
                         $scope.acumular += $scope.page[i].obj_producto.precio;
                     }
 
+                    $scope.total = 0;
+                    for (var i = 0; i < $scope.page.length; i++) {
+                        $scope.total++;
+                    }
+
 
                 } else {
                     $scope.status = "Error en la recepción de datos del servidor";
@@ -107,24 +112,13 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
             var ventana = window.open('', '_blank');  //abrimos una ventana vacía nueva
 //            ventana.document.getElementById('datos').innerHTML = '<h1>Hola</h1>';
 
-            var cabecera="<h1>Linea </h1>";
-
-
-            ventana.document.write(cabecera  + "titulo de samu" + tabla.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana            
+            var cabecera = "<h1>Factureca</h1>";
+            var titulo = "<h2>Listado de las lineas de pedido</h2>";
+            ventana.document.write(cabecera + titulo + tabla.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana            
             ventana.document.close();  //cerramos el documento
+            ventana.print();  //imprimimos la ventana
+            ventana.close();  //cerramos la ventana
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         getDataFromServer();

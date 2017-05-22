@@ -73,6 +73,12 @@ THE SOFTWARE.
                                                     {{bean[f.name]["nombre"]}}
                                                 </a>
                                             </td>
+                                            
+                                            <td ng-if="f.name == 'obj_producto_precio'">
+                                                <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
+                                                    {{bean[f.name]["precio"]}}
+                                                </a>
+                                            </td>
 
                                     </tbody>
                                 </table>
