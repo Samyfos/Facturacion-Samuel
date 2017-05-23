@@ -60,20 +60,22 @@ THE SOFTWARE.
                                         <td ng-if="f.type == 'id'"><b>{{bean[f.name]}}</b></td>
                                         <td ng-if="f.type == 'integer'">{{bean[f.name]}}</td>
                                         <td ng-if="f.type == 'text'">{{bean[f.name]}}</td>
+                                        <td ng-if="f.type == 'decimal'">{{bean[f.name]}}</td>
+
                                         <!-- ------------- -->
                                         <td ng-if="f.name == 'obj_categoria'">
-                                                <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
-                                                    {{bean[f.name]["nombre"]}}
-                                                </a>
-                                            </td>
-                                            <td ng-if="f.name == 'obj_proveedor'">
-                                                <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
-                                                    {{bean[f.name]["nombreempresa"]}}
-                                                </a>
-                                            </td>
-                                        
-                                        
-                                        
+                                            <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
+                                                {{bean[f.name]["nombre"]}}
+                                            </a>
+                                        </td>
+                                        <td ng-if="f.name == 'obj_proveedor'">
+                                            <a href="{{f.reference}}/view/{{bean[f.name]['id']}}">
+                                                {{bean[f.name]["nombreempresa"]}}
+                                            </a>
+                                        </td>
+
+
+
                                     </tr>
                                 </tbody>
                             </table>

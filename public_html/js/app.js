@@ -40,7 +40,7 @@ var sisane = angular.module('myApp', [
     'lineapedidoControllers',
     'categoriaControllers',
     'productoControllers',
-   'proveedorControllers',
+    'proveedorControllers',
 //    'usuarioControllers',
 //    'tipousuarioControllers',
 //    'medicamentoControllers',
@@ -107,49 +107,49 @@ sisane.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/empleado/remove/:id', {templateUrl: 'js/empleado/remove.html', controller: 'EmpleadoRemoveController'});
         $routeProvider.when('/empleado/plist/:page?/:rpp?', {templateUrl: 'js/empleado/plist.html', controller: 'EmpleadoPListController'});
         $routeProvider.when('/empleado/selection/:page?/:rpp?', {templateUrl: 'js/empleado/selection.html', controller: 'EmpleadoSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/tipoempleado/view/:id', {templateUrl: 'js/tipoempleado/view.html', controller: 'TipoempleadoViewController'});
         $routeProvider.when('/tipoempleado/new/:id?', {templateUrl: 'js/tipoempleado/new.html', controller: 'TipoempleadoNewController'});
         $routeProvider.when('/tipoempleado/edit/:id', {templateUrl: 'js/tipoempleado/edit.html', controller: 'TipoempleadoEditController'});
         $routeProvider.when('/tipoempleado/remove/:id', {templateUrl: 'js/tipoempleado/remove.html', controller: 'TipoempleadoRemoveController'});
         $routeProvider.when('/tipoempleado/plist/:page?/:rpp?', {templateUrl: 'js/tipoempleado/plist.html', controller: 'TipoempleadoPListController'});
         $routeProvider.when('/tipoempleado/selection/:page?/:rpp?', {templateUrl: 'js/tipoempleado/selection.html', controller: 'TipoempleadoSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/cliente/view/:id', {templateUrl: 'js/cliente/view.html', controller: 'ClienteViewController'});
         $routeProvider.when('/cliente/new/:id?', {templateUrl: 'js/cliente/new.html', controller: 'ClienteNewController'});
         $routeProvider.when('/cliente/edit/:id', {templateUrl: 'js/cliente/edit.html', controller: 'ClienteEditController'});
         $routeProvider.when('/cliente/remove/:id', {templateUrl: 'js/cliente/remove.html', controller: 'ClienteRemoveController'});
         $routeProvider.when('/cliente/plist/:page?/:rpp?', {templateUrl: 'js/cliente/plist.html', controller: 'ClientePListController'});
         $routeProvider.when('/cliente/selection/:page?/:rpp?', {templateUrl: 'js/cliente/selection.html', controller: 'ClienteSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/factura/view/:id', {templateUrl: 'js/factura/view.html', controller: 'FacturaViewController'});
         $routeProvider.when('/factura/new/:id?', {templateUrl: 'js/factura/new.html', controller: 'FacturaNewController'});
         $routeProvider.when('/factura/edit/:id', {templateUrl: 'js/factura/edit.html', controller: 'FacturaEditController'});
         $routeProvider.when('/factura/remove/:id', {templateUrl: 'js/factura/remove.html', controller: 'FacturaRemoveController'});
         $routeProvider.when('/factura/plist/:page?/:rpp?', {templateUrl: 'js/factura/plist.html', controller: 'FacturaPListController'});
         $routeProvider.when('/factura/selection/:page?/:rpp?', {templateUrl: 'js/factura/selection.html', controller: 'FacturaSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/lineapedido/view/:id', {templateUrl: 'js/lineapedido/view.html', controller: 'LineapedidoViewController'});
         $routeProvider.when('/lineapedido/new/:id?', {templateUrl: 'js/lineapedido/new.html', controller: 'LineapedidoNewController'});
         $routeProvider.when('/lineapedido/edit/:id', {templateUrl: 'js/lineapedido/edit.html', controller: 'LineapedidoEditController'});
         $routeProvider.when('/lineapedido/remove/:id', {templateUrl: 'js/lineapedido/remove.html', controller: 'LineapedidoRemoveController'});
         $routeProvider.when('/lineapedido/plist/:page?/:rpp?', {templateUrl: 'js/lineapedido/plist.html', controller: 'LineapedidoPListController'});
         $routeProvider.when('/lineapedido/selection/:page?/:rpp?', {templateUrl: 'js/lineapedido/selection.html', controller: 'LineapedidoSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/categoria/view/:id', {templateUrl: 'js/categoria/view.html', controller: 'CategoriaViewController'});
         $routeProvider.when('/categoria/new/:id?', {templateUrl: 'js/categoria/new.html', controller: 'CategoriaNewController'});
         $routeProvider.when('/categoria/edit/:id', {templateUrl: 'js/categoria/edit.html', controller: 'CategoriaEditController'});
         $routeProvider.when('/categoria/remove/:id', {templateUrl: 'js/categoria/remove.html', controller: 'CategoriaRemoveController'});
         $routeProvider.when('/categoria/plist/:page?/:rpp?', {templateUrl: 'js/categoria/plist.html', controller: 'CategoriaPListController'});
         $routeProvider.when('/categoria/selection/:page?/:rpp?', {templateUrl: 'js/categoria/selection.html', controller: 'CategoriaSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/producto/view/:id', {templateUrl: 'js/producto/view.html', controller: 'ProductoViewController'});
         $routeProvider.when('/producto/new/:id?', {templateUrl: 'js/producto/new.html', controller: 'ProductoNewController'});
         $routeProvider.when('/producto/edit/:id', {templateUrl: 'js/producto/edit.html', controller: 'ProductoEditController'});
         $routeProvider.when('/producto/remove/:id', {templateUrl: 'js/producto/remove.html', controller: 'ProductoRemoveController'});
         $routeProvider.when('/producto/plist/:page?/:rpp?', {templateUrl: 'js/producto/plist.html', controller: 'ProductoPListController'});
         $routeProvider.when('/producto/selection/:page?/:rpp?', {templateUrl: 'js/producto/selection.html', controller: 'ProductoSelectionController'});
-         //------------
+        //------------
         $routeProvider.when('/proveedor/view/:id', {templateUrl: 'js/proveedor/view.html', controller: 'ProveedorViewController'});
         $routeProvider.when('/proveedor/new/:id?', {templateUrl: 'js/proveedor/new.html', controller: 'ProveedorNewController'});
         $routeProvider.when('/proveedor/edit/:id', {templateUrl: 'js/proveedor/edit.html', controller: 'ProveedorEditController'});

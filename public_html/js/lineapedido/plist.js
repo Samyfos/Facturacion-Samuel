@@ -81,6 +81,8 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
                     }
 
 
+
+
                 } else {
                     $scope.status = "Error en la recepción de datos del servidor";
                 }
