@@ -158,8 +158,8 @@ THE SOFTWARE.
                                                     <div ng-if="f.visible && f.type == 'decimal'" class="text-center">{{obj[f.name]}}</div>
                                                     <div ng-if="f.visible && f.type == 'text'" class="text-left">{{obj[f.name]|clipString}}</div>
                                                     <div ng-if="f.visible && f.type == 'boolean'" class="text-center" ng-bind-html="obj[f.name] | booleanizate"></div>
-                                                    <div class="text-center">{{parseInt(obj.obj_producto.cantidad) * parseInt(obj.obj_producto.precio)}}</a></div>
-                                                    
+                                                    <div ng-if="f.visible && f.type == 'decimal'"  class="text-center">{{obj.cantidad * obj.obj_producto.precio}}</a></div>
+
                                                     <!------------------------------------------------>
 
                                                     <div ng-if="f.visible && f.name == 'obj_factura'" class="text-center"><a href="factura/view/{{obj.obj_factura.id}}">{{obj.obj_factura.id}}</a></div>
@@ -173,7 +173,8 @@ THE SOFTWARE.
                                                     <!------------------------------------------------>
 
                                                     <!------------------------------------------------>
-                                                </td>                       
+                                                </td>
+
                                                 <td>
                                                     <div class="btn-toolbar" role="toolbar">
                                                         <div class="btn-group">

@@ -72,7 +72,7 @@ moduloLineapedido.controller('LineapedidoPListController', ['$scope', '$routePar
 
                     $scope.acumular = 0;
                     for (var i = 0; i < $scope.page.length; i++) {
-                        $scope.acumular += $scope.page[i].obj_producto.precio;
+                        $scope.acumular += $scope.page[i].obj_producto.precio * $scope.page[i].cantidad;
                     }
 
                     $scope.total = 0;

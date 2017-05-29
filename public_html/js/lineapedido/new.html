@@ -91,25 +91,7 @@ THE SOFTWARE.
                                     </div>
                                 </div>
                                 <!------------------------------------------------->
-
-
-
-                                <div class="form-group"
-                                     ng-if="f.type == 'date'"
-                                     id="fecha-group"
-                                     ng-class="{'has-error': (outerForm.fecha.$error.required ||
-                                                             outerForm.fecha.$error.valid)
-                                                             && !outerForm.fecha.$pristine}">
-                                    <clabel wide="2" name="f.name" longname="f.longname" required="f.required" /> 
-                                    <div class="control col-sm-3">
-                                        <date-time-picker ng-if="f.type == 'date'" 
-                                                          name="f.name" 
-                                                          required="f.required" 
-                                                          fecha="bean[f.name]" 
-                                                          form="outerForm" /> 
-                                        <span class="help-block" ng-if="outerForm.fecha.$error.required">El campo es obligatorio</span>
-                                    </div>
-                                </div>                   
+                  
                                 <!------------------------------------------------->
                                 <div ng-if="f.type == 'foreign'" class="form-group">
                                     <clabel wide="2" name="f.name" longname="f.longname" required="f.required"></clabel>

@@ -41,8 +41,11 @@ moduloLineapedido.controller('LineapedidoNewController', ['$scope', '$routeParam
         $scope.bean = {};
         $scope.bean.id = 0;
         //---
-        $scope.bean.obj_tipolineapedido = {"id": 0};
-        $scope.show_obj_tipolineapedido = true;
+        $scope.bean.obj_factura = {"id": 0};
+        $scope.show_obj_factura = true;
+        //---
+        $scope.bean.obj_producto = {"id": 0};
+        $scope.show_obj_producto = true;
         //---
 
         $scope.save = function () {
